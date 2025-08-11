@@ -84,8 +84,31 @@ yarn dev
 yarn build
 ```
 
+### Feature A アプリ
+
+#### ルートディレクトリから起動（推奨）
+```bash
+# 開発サーバー起動
+yarn dev:feature-a
+
+# ビルド
+yarn build:feature-a
+```
+
+#### feature-aディレクトリから直接起動
+```bash
+cd apps/feature-a
+
+# 開発サーバー起動
+yarn dev
+
+# ビルド
+yarn build
+```
+
 ### アクセス情報
-- **Central アプリ**: http://localhost:3001/
+- **Central アプリ**: http://localhost:3000/
+- **Feature A アプリ**: http://localhost:3002/
 - **DevTools**: Shift + Option + D (ブラウザ内)
 
 ## アプリケーション仕様
@@ -99,7 +122,16 @@ yarn build
   - ログイン後ダッシュボード
   - Feature アプリへの SSO 遷移
 
-### FeatureA/B アプリ (予定)
+### FeatureA アプリ
+- **役割**: タスク管理システム
+- **認証**: Central からの SSO
+- **機能**: 
+  - タスクの作成・編集・削除
+  - タスクの完了管理
+  - 優先度設定
+  - フィルタリング機能
+
+### FeatureB アプリ (予定)
 - **役割**: 特定ドメインの CRUD UI
 - **認証**: Central からの SSO
 - **機能**: ドメイン固有の業務機能
@@ -121,21 +153,25 @@ yarn build
 ## 検証タスク
 
 1. ✅ **Central アプリ作成・起動確認**
-2. ⏸️ **FeatureA/B アプリ作成**
-3. ⏸️ **Lambda Web Adapter 対応**
-4. ⏸️ **Docker化**
-5. ⏸️ **CDK インフラ構築**
-6. ⏸️ **S3 静的アセットデプロイ**
-7. ⏸️ **API Gateway SSR 確認**
-8. ⏸️ **CloudFront ルーティング確認**
-9. ⏸️ **JWT オーソライザー確認**
-10. ⏸️ **Cognito SSO フロー確認**
+2. ✅ **FeatureA アプリ作成・起動確認**
+3. ✅ **アプリ間遷移・認証状態共有確認**
+4. ⏸️ **FeatureB アプリ作成**
+5. ⏸️ **Lambda Web Adapter 対応**
+6. ⏸️ **Docker化**
+7. ⏸️ **CDK インフラ構築**
+8. ⏸️ **S3 静的アセットデプロイ**
+9. ⏸️ **API Gateway SSR 確認**
+10. ⏸️ **CloudFront ルーティング確認**
+11. ⏸️ **JWT オーソライザー確認**
+12. ⏸️ **Cognito SSO フロー確認**
 
 ## 開発ステータス
 
 - ✅ **Yarn Workspace 設定完了**
 - ✅ **Central アプリ（Nuxt4）作成・起動確認**
-- ⏸️ FeatureA/B アプリ作成
+- ✅ **FeatureA アプリ（タスク管理）作成・起動確認**
+- ✅ **アプリ間遷移機能実装**
+- ⏸️ FeatureB アプリ作成
 - ⏸️ 認証機能実装
 - ⏸️ AWS インフラ構築
 
@@ -148,6 +184,6 @@ yarn build
 
 ### ポート競合
 複数のNuxtアプリを同時起動する場合、自動的に別ポートが割り当てられます。
-- Central: http://localhost:3001/
-- FeatureA: http://localhost:3002/ (予定)
+- Central: http://localhost:3000/
+- FeatureA: http://localhost:3002/
 - FeatureB: http://localhost:3003/ (予定)

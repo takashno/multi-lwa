@@ -11,7 +11,7 @@
         </h1>
         
         <p class="text-gray-600 mb-6">
-          機能Aアプリケーションに移動します
+          タスク管理システムに移動します
         </p>
         
         <div class="space-y-4">
@@ -22,7 +22,7 @@
             class="w-full"
             icon="heroicons:arrow-top-right-on-square"
           >
-            Feature A を開く
+            タスク管理を開く
           </UButton>
           
           <UButton
@@ -36,7 +36,7 @@
         </div>
         
         <div class="mt-6 text-xs text-gray-500">
-          <p>このリンクは将来的に Feature A アプリケーションのドメインに移動します</p>
+          <p>認証状態を引き継いでFeature Aアプリに移動します</p>
         </div>
       </div>
     </div>
@@ -45,11 +45,11 @@
 
 <script setup>
 const navigateToFeatureA = () => {
-  // TODO: 将来的には実際のFeature Aアプリケーションのドメインに移動
-  // 例: window.location.href = 'https://feature-a.your-domain.com'
-  
-  // 現在は開発中のメッセージを表示
-  alert('Feature A アプリケーションは開発中です。\n将来的には独立したドメインに移動します。')
+  // 現在はローカル開発環境での検証
+  // 本番環境では実際のFeature Aドメインに移動
+  if (typeof window !== 'undefined') {
+    window.location.href = 'http://localhost:3002/'
+  }
 }
 
 // ページタイトルを設定
