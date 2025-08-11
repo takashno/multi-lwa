@@ -7,6 +7,7 @@ CloudFront の前段に AWS WAF を設定し、Cognito JWT オーソライザー
 
 ## 要件
 - Nuxt4 (Node.js 22) 各アプリを Lambda(Docker) + LWA で稼働
+  - yarnを用いる
 - Central アプリ：ログイン前/認証/ログイン後トップページ
 - FeatureA/B アプリ：特定ドメインの CRUD UI
 - 認証は Central アプリで Cognito Hosted UI (Auth Code + PKCE) → Feature アプリへ SSO 的遷移
