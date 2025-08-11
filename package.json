@@ -1,0 +1,23 @@
+{
+  "name": "multi-lwa",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "infra"
+  ],
+  "packageManager": "yarn@4.9.2",
+  "scripts": {
+    "dev:central": "cd apps/central && yarn dev",
+    "build:central": "cd apps/central && yarn build",
+    "dev:feature-a": "cd apps/feature-a && yarn dev",
+    "build:feature-a": "cd apps/feature-a && yarn build",
+    "dev:feature-b": "cd apps/feature-b && yarn dev",
+    "build:feature-b": "cd apps/feature-b && yarn build",
+    "build:all": "cd apps/central && yarn build && cd ../feature-a && yarn build && cd ../feature-b && yarn build",
+    "deploy:infra": "cd infra && yarn deploy"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
