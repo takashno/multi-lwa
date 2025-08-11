@@ -1,0 +1,8 @@
+/* Global styles for the central app */
+
+/* Custom utilities */
+.transition-colors {
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+/* Additional custom styles can be added here */
